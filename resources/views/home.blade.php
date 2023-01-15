@@ -26,26 +26,27 @@
             <h2>Proyectos destacados</h2>
 
             <ul class="projects">
-                @for ($i = 0; $i < 3; $i++)
+                @foreach ($projects as $project)
                 <li class="project">
                     <div class="project__info">
                         <div class="accent"></div>
-                        <h3>Tapai Coworking</h3>
+                        <h3>{{ $project["name"] }}</h3>
                         <ul class="tags">
-                            <li class="tag">Desarrollo Web</li>
-                            <li class="tag">Diseño Web</li>
+                            @foreach ($project["tags"] as $tag)                                
+                            <li class="tag">{{ $tag }}</li>
+                            @endforeach                            
                         </ul>
-                        <p class="project__desc">Full website design and build for a concept team collaboration platform. This website also includes a beautiful blog. I have built the website and the blog in Webflow which has one of the best CMS for blog hosting.</p>
+                        <p class="project__desc">{{ $project["description"] }}</p>
                         <div class="btn-border btn-border--secondary">
-                            <a href="/proyectos/{{ "tapai-coworking" }}" class="btn btn--secondary">Ver proyecto</a>                
+                            <a href="/proyectos/{{ $project["id"] }}" class="btn btn--secondary">Ver proyecto</a>                
                         </div>
                     </div>
 
                     <div class="project__img">
-                        <img src="{{ asset("images/tapai-coworking.png") }}" alt="">
+                        <img src="{{ asset("images/" . $project['id'] . ".png") }}" alt="{{ $project["name"] }}">
                     </div>
                 </li>
-                @endfor
+                @endforeach
             </ul>
         </div>
     </div>

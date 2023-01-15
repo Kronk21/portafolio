@@ -412,6 +412,9 @@ main {
     width: 100%;
 
     transform: translateY(-10rem);
+
+    border-radius: 10px;
+    filter: drop-shadow(2px 4px 20px rgba(0, 0, 0, 0.1));
 }
 
 /* About info */
